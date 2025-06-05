@@ -34,12 +34,9 @@ deb: $(TARGET)
 	@# Create control file
 	@echo "Package: $(DEB_NAME)" > $(DEB_DIR)/DEBIAN/control
 	@echo "Version: $(VERSION)" >> $(DEB_DIR)/DEBIAN/control
-	@echo "Section: net" >> $(DEB_DIR)/DEBIAN/control
-	@echo "Priority: optional" >> $(DEB_DIR)/DEBIAN/control
 	@echo "Architecture: $(ARCH)" >> $(DEB_DIR)/DEBIAN/control
-	@echo "Maintainer: Your Name <you@example.com>" >> $(DEB_DIR)/DEBIAN/control
+	@echo "Maintainer: Fireukl <fireukl@gmail.com>" >> $(DEB_DIR)/DEBIAN/control
 	@echo "Description: myRPC Client Application" >> $(DEB_DIR)/DEBIAN/control
-	@echo " Remote procedure call client for myRPC system" >> $(DEB_DIR)/DEBIAN/control
 
 	@# Build package
 	fakeroot dpkg-deb --build $(DEB_DIR) $(DEB_PATH)/$(DEB_NAME).deb

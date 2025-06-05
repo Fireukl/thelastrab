@@ -1,13 +1,13 @@
 CC = gcc
-CFLAGS = -Wall -g -I../libmysyslog1 -I.
-LDFLAGS = -L../libmysyslog1 -Wl,-rpath=../libmysyslog1 -lmysyslog
+CFLAGS = -Wall -g -I../libmysyslog_(Fireukl) -I.
+LDFLAGS = -L../libmysyslog_(Fireukl) -Wl,-rpath=../libmysyslog_(Fireukl) -lmysyslog
 TARGET = bin/myrpc-server
 OBJ = obj/server.o obj/config_parser.o
 DEB_DIR = deb_pkg
 DEB_NAME = myrpc-server
 VERSION = 1.0-1
 ARCH = amd64
-DEB_PATH = ../server/deb
+DEB_PATH = ../myrpc_server_(Fireukl)/deb
 
 .PHONY: all clean deb
 
@@ -38,12 +38,9 @@ deb: $(TARGET)
 	@# Create control file
 	@echo "Package: $(DEB_NAME)" > $(DEB_DIR)/DEBIAN/control
 	@echo "Version: $(VERSION)" >> $(DEB_DIR)/DEBIAN/control
-	@echo "Section: net" >> $(DEB_DIR)/DEBIAN/control
-	@echo "Priority: optional" >> $(DEB_DIR)/DEBIAN/control
 	@echo "Architecture: $(ARCH)" >> $(DEB_DIR)/DEBIAN/control
-	@echo "Maintainer: Admin <admin@example.com>" >> $(DEB_DIR)/DEBIAN/control
+	@echo "Maintainer: Fireukl <fireukl@gmail.com>" >> $(DEB_DIR)/DEBIAN/control
 	@echo "Description: myRPC Server Application" >> $(DEB_DIR)/DEBIAN/control
-	@echo " Remote procedure call server for myRPC system" >> $(DEB_DIR)/DEBIAN/control
 
 	@# Build package
 	fakeroot dpkg-deb --build $(DEB_DIR) $(DEB_PATH)/$(DEB_NAME).deb

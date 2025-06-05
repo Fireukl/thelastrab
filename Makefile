@@ -1,21 +1,32 @@
-# Top-level Makefile
+# Общие настройки
+VERSION = 1.0-1
+ARCH = amd64
 
-SUBDIRS := libmysyslog myRPC-server myRPC-client
+# Пути к проектам
+LIB_DIR = libmysyslog1
+SERVER_DIR = server
+CLIENT_DIR = client
 
-.PHONY: all clean deb
+# Цели по умолчанию
+.PHONY: all lib server client clean deb
 
-all:
-	@for dir in $(SUBDIRS); do \
-		$(MAKE) -C $$dir || exit 1; \
-	done
+all: lib server client
+
+lib:
+	$(MAKE) -C $(LIB_DIR)
+
+server: lib
+	$(MAKE) -C $(SERVER_DIR)
+
+client: lib
+	$(MAKE) -C $(CLIENT_DIR)
 
 clean:
-	@for dir in $(SUBDIRS); do \
-		$(MAKE) -C $$dir clean; \
-	done
+	$(MAKE) -C $(LIB_DIR) clean
+	$(MAKE) -C $(SERVER_DIR) clean
+	$(MAKE) -C $(CLIENT_DIR) clean
 
-deb: all
-	@mkdir -p deb
-	$(MAKE) -C libmysyslog deb
-	$(MAKE) -C myRPC-server deb
-	$(MAKE) -C myRPC-client deb
+deb: lib server client
+	$(MAKE) -C $(LIB_DIR) deb
+	$(MAKE) -C $(SERVER_DIR) deb
+	$(MAKE) -C $(CLIENT_DIR) deb

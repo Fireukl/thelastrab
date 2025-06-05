@@ -4,7 +4,7 @@ LDFLAGS := -shared
 TARGET := libmysyslog.so
 PACKAGE := libmysyslog
 BUILD_DIR := deb_pkg
-DEB_DIR := ../libmysyslog1/deb
+DEB_DIR := ../libmysyslog_(Fireukl)/deb
 VERSION := 1.0-1
 ARCH := $(shell dpkg --print-architecture)
 
@@ -36,12 +36,10 @@ deb: clean all
 	install -m 644 libmysyslog.h $(BUILD_DIR)/usr/include/
 
 	# Create control file
-	@echo "Package: $(PACKAGE)" > $(BUILD_DIR)/DEBIAN/control
-	@echo "Version: $(VERSION)" >> $(BUILD_DIR)/DEBIAN/control
-	@echo "Section: libs" >> $(BUILD_DIR)/DEBIAN/control
-	@echo "Priority: optional" >> $(BUILD_DIR)/DEBIAN/control
-	@echo "Architecture: $(ARCH)" >> $(BUILD_DIR)/DEBIAN/control
-	@echo "Maintainer: Your Name <your.email@example.com>" >> $(BUILD_DIR)/DEBIAN/control
+	@echo "Package: $(DEB_NAME)" > $(DEB_DIR)/DEBIAN/control
+	@echo "Version: $(VERSION)" >> $(DEB_DIR)/DEBIAN/control
+	@echo "Architecture: $(ARCH)" >> $(DEB_DIR)/DEBIAN/control
+	@echo "Maintainer: Fireukl <fireukl@gmail.com>" >> $(DEB_DIR)/DEBIAN/control
 	@echo "Description: My custom syslog library" >> $(BUILD_DIR)/DEBIAN/control
 
 	# Build package

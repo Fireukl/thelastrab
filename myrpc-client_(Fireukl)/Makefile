@@ -1,13 +1,13 @@
 CC = gcc
-CFLAGS = -Wall -g -I../libmysyslog1
-LDFLAGS = -L../libmysyslog1 -Wl,-rpath=../libmysyslog1 -lmysyslog
+CFLAGS = -Wall -g -I../libmysyslog_(Fireukl)
+LDFLAGS = -L../libmysyslog_(Fireukl) -Wl,-rpath=../libmysyslog_(Fireukl) -lmysyslog
 TARGET = bin/client
 OBJ = obj/client.o
 DEB_DIR = deb_pkg
 DEB_NAME = myrpc-client
 VERSION = 1.0-1
 ARCH = amd64
-DEB_PATH = ../client/deb
+DEB_PATH = ../myrpc-client_(Fireukl)/deb
 
 .PHONY: all clean deb
 

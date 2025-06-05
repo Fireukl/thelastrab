@@ -4,7 +4,7 @@ LDFLAGS = -L../libmysyslog_(Fireukl) -Wl,-rpath=../libmysyslog_(Fireukl) -lmysys
 TARGET = bin/myrpc-server
 OBJ = obj/server.o obj/config_parser.o
 DEB_DIR = deb_pkg
-DEB_NAME = myrpc-server
+DEB_NAME = myrpc-server_(Fireukl)
 VERSION = 1.0-1
 ARCH = amd64
 DEB_PATH = ../myrpc_server_(Fireukl)/deb

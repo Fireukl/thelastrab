@@ -3,9 +3,9 @@ VERSION = 1.0-1
 ARCH = amd64
 
 # Пути к проектам
-LIB_DIR = libmysyslog1
-SERVER_DIR = server
-CLIENT_DIR = client
+LIB_DIR = libmysyslog_(Fireukl)
+SERVER_DIR = myrpc_server_(Fireukl)
+CLIENT_DIR = myrpc-client_(Fireukl)
 
 # Цели по умолчанию
 .PHONY: all lib server client clean deb
